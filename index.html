@@ -58,6 +58,18 @@
 			background-repeat: no-repeat;
 			background-size: cover;
 			padding: 1em;
+			overflow: hidden;
+			transition: all 200ms ease;
+			opacity: 1;
+		}
+
+		.sumazintas
+		{
+			width: 0;
+			height: 0;
+			margin: 0;
+			padding: 0;
+			opacity: 0;
 		}
 
 		.apskritimas:hover {
@@ -82,17 +94,61 @@
 		{
 			line-break: normal;
 		}
+
+		#turinys 
+		{
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			flex-direction: column;
+			position: relative;
+			height: auto;
+			transition: all 500ms ease;
+			transition-delay: 200ms;
+		}
+
+		.pasleptas {
+			display: none;
+			position: fixed;
+			height: 0;
+			top: 100vh;
+			margin-top: 100vh;
+		}
 	</style>
+
 </head>
 <body>
 
 	<script>
-		function rodytiSkilti(pavadinimas) {
+		function rodytiSkilti(skiltis) {
+			const skiltys = q('.skiltys').children
 
+			for(skilt of skiltys) {
+				if(skilt != skiltis) {
+					sumazintiApskritima(skilt)
+				}
+				else {
+					rodytiTurini(skiltis.children[1])
+				}
+			}
 		}
+
+		function sumazintiApskritima(apskritimas) {
+			ca(apskritimas, 'sumazintas')
+		}
+
+		function rodytiTurini(turinio_elementas) {
+			const turinys = e('turinys')
+			ih(turinys, turinio_elementas.innerHTML)
+			cr(turinys, 'pasleptas')
+
+		}	
 	</script>
 
-	<div class="logo-blokas"><img class="logo" src="logo.svg" alt="Logotipas"></div>
+	<div class="logo-blokas">
+		<img class="logo" src="logo.svg" alt="Logotipas">
+
+	</div>
 
 	<div class="skiltys">
 		<div class="skiltis apskritimas" style="background-image: url('failai/knyga.jpg');" onclick="rodytiSkilti(this)" id="knygos">
@@ -106,7 +162,7 @@
 			</div>
 		</div>
 
-		<div class="skiltis apskritimas" style="background-image: url('failai/asmeninis-koucingas.jpg');" onclick="rodyti(this)" id="knygos">
+		<div class="skiltis apskritimas" style="background-image: url('failai/asmeninis-koucingas.jpg');" onclick="rodytiSkilti(this)" id="koucingas">
 			<div class="pavadinimas">Individualus koučingas</div>
 			<div class="turinys">
 
@@ -137,7 +193,7 @@
 			</div>
 		</div>
 
-		<div class="skiltis apskritimas" style="background-image: url('failai/poru-koucingas.jpg');" onclick="rodyti(this)" id="knygos">
+		<div class="skiltis apskritimas" style="background-image: url('failai/poru-koucingas.jpg');" onclick="rodytiSkilti(this)" id="koucingas-poru">
 			<div class="pavadinimas">Porų koučingas</div>
 			<div class="turinys">
 
@@ -163,7 +219,7 @@
 			</div>
 		</div>
 
-		<div class="skiltis apskritimas" style="background-image: url('failai/stovyklos.jpg');" onclick="rodyti(this)" id="knygos">
+		<div class="skiltis apskritimas" style="background-image: url('failai/stovyklos.jpg');" onclick="rodytiSkilti(this)" id="stovyklos">
 			<div class="pavadinimas">Stovyklos</div>
 			<div class="turinys">
 
@@ -174,7 +230,7 @@
 			</div>
 		</div>		
 		
-		<div class="skiltis apskritimas" style="background-image: url('failai/koucingo-rekolekcijos.jpg');" onclick="rodyti(this)" id="knygos">
+		<div class="skiltis apskritimas" style="background-image: url('failai/koucingo-rekolekcijos.jpg');" onclick="rodytiSkilti(this)" id="koucingo-rekolekcijos">
 			<div class="pavadinimas">Koučingo rekolekcijos</div>
 			<div class="turinys">
 			
@@ -219,7 +275,7 @@
 			</div>
 		</div>
 
-		<div class="skiltis apskritimas" style="background-image: url('failai/mokymai.jpg');" onclick="rodyti(this)" id="mokymai">
+		<div class="skiltis apskritimas" style="background-image: url('failai/mokymai.jpg');" onclick="rodytiSkilti(this)" id="mokymai">
 			<div class="pavadinimas">Mokymai</div>
 			<div class="turinys">
 				
@@ -228,7 +284,7 @@
 			</div>
 		</div>
 
-		<div class="skiltis apskritimas" style="background-image: url('failai/grupes-koucingas.jpg');" onclick="rodyti(this)" id="koucingas-grupes">
+		<div class="skiltis apskritimas" style="background-image: url('failai/grupes-koucingas.jpg');" onclick="rodytiSkilti(this)" id="koucingas-grupes">
 			<div class="pavadinimas">Grupės/komandos koučingas</div>
 			<div class="turinys">
 				
@@ -237,7 +293,7 @@
 			</div>
 		</div>
 
-		<div class="skiltis apskritimas" style="background-image: url('failai/kontaktai.jpg');" onclick="rodyti(this)" id="kontaktai">
+		<div class="skiltis apskritimas" style="background-image: url('failai/kontaktai.jpg');" onclick="rodytiSkilti(this)" id="kontaktai">
 			<div class="pavadinimas">Kontaktai</div>
 			<div class="turinys">
 				
@@ -247,7 +303,7 @@
 			</div>
 		</div>
 
-		<div class="skiltis apskritimas" style="background-image: url('failai/apie.jpg');" onclick="rodyti(this)" id="apie">
+		<div class="skiltis apskritimas" style="background-image: url('failai/apie.jpg');" onclick="rodytiSkilti(this)" id="apie">
 			<div class="pavadinimas">Apie</div>
 			<div class="turinys">
 				
@@ -276,6 +332,10 @@
 			</div>
 		</div>	
 
+	</div>
+
+	<div id="turinys" class="pasleptas">
+		
 	</div>
 </body>
 </html>
