@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script type="text/javascript " src="https://unpkg.com/srcsjs@0.0.5/s.js"></script>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Mindaugas Pikūnas</title>
+	<meta data-n-head="ssr" data-hid="description" name="description" content="">
+	<meta data-n-head="ssr" data-hid="og:type" name="og:type" property="og:type" content="website">
+	<meta data-n-head="ssr" data-hid="og:title" name="og:title" property="og:title" content="Mindaugas Pikūnas">
+	<meta data-n-head="ssr" data-hid="og:site_name" name="og:site_name" property="og:site_name" content="Mindaugas Pikūnas">
+	<meta data-n-head="ssr" data-hid="og:description" name="og:description" property="og:description" content="Mindaugo Pikūno internetinis puslapis">
+	<link data-n-head="ssr" rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css">
+	<style type="text/css" media="screen">
+		.items {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			flex-wrap: wrap;
+		}
+		.circle { 
+			width: 300px;
+			height: 300px;
+			max-height: 80vw;
+			max-width: 80vw;
+			border-radius: 50%;
+			background-color: #ddd;
+			transition: all 50ms;
+			margin: 3em;
+			background-position: 50%;
+			background-repeat: no-repeat;
+			background-size: cover;
+			cursor: pointer;
+			text-align: center;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			padding: 1em;
+		}
+		.circle-link
+		{
+		  color: #222;
+		  font-size: 1.3em;
+		  background-color: hsla(0,0%,100%,.6);
+		  padding: 0.3em 0.6em;
+		}
+
+	</style>
+</head>
+<body>
+
+	<div class="d-flex justify-content-center mb-3 mt-5">
+		<a href="/">
+			<img src="logo.svg" alt="" style="max-height:100px">
+		</a>
+	</div>
+
+	<div class="items">
+	
+
+		<div class="circle" style="background-image: url('failai/knyga.jpg');" onclick="rodyti('knygos')">
+			<div class="circle-link" >
+				Knygos
+			</div>
+			<div style="display: none;" id="knygos">
+				Knyga šiuo metu dar yra rašymo stadijoje. Laukite naujienų. 
+			</div>
+		</div>
+
+
+		<div class="item circle" style="background-image: url('failai/asmeninis-koucingas.jpg');">
+			<div class="circle-link">
+				Individualus koučingas
+			</div>
+			<div>
+
+			</div>
+		</div>
+
+		<script>
+			function rodyti(pavadinimas) {
+
+				show(pavadinimas)
+			}	
+		</script>
+
+</div><div><div class="item circle" style="background-image: url('failai/poru-koucingas.jpg');"><div to="poru-koucingas" class="circle-link px-1">
+      Porų koučingas
+    </div></div></div><div><div class="item circle" style="background-image: url('failai/stovyklos.jpg');"><div to="stovyklos" class="circle-link px-1">
+      Stovyklos
+    </div></div></div><div><div class="item circle" style="background-image: url('failai/koucingo-rekolekcijos.jpg');"><div to="koucingo-rekolekcijos" class="circle-link px-1">
+      Koučingo rekolekcijos
+    </div></div></div><div><div class="item circle" style="background-image: url('failai/mokymai.jpg');"><div to="mokymai" class="circle-link px-1">
+      Mokymai
+    </div></div></div><div><div class="item circle" style="background-image: url('failai/grupes-koucingas.jpg');"><div to="komandos-koucingas" class="circle-link px-1">
+      Grupės/komandos koučingas
+    </div></div></div><div><div class="item circle" style="background-image: url('failai/kontaktai.jpg');"><div to="kontaktai" class="circle-link px-1">
+      Kontaktai
+    </div></div></div><div><div class="item circle" style="background-image: url('failai/apie.jpg');"><div to="apie" class="circle-link px-1">
+      Apie mane
+    </div></div></div></div>
+</body>
+</html>
