@@ -116,12 +116,6 @@
 				margin: auto;
 			}
 
-			.pasleptas {
-				display: none;
-				position: fixed;
-				height: 0;
-			}
-
 			p {
 				line-break: normal;
 			}
@@ -323,10 +317,12 @@
 		</div>	
 	</div>
 
-	<div id="turinys" class="pasleptas">
+	<div id="turinys">
+		
 	</div>
 
 	<script>
+
 		//konstanta skiltys yra elemento su ID skiltys viduje esantys elementai. 
 		const skiltys = e('skiltys').children
 		const turinys = e('turinys')
@@ -347,10 +343,6 @@
 				a(skiltis, 'onclick', 'rodytiSkilti(this)')
 			}
 
-			//paslepiamas turinys
-			//ca - class add (elementas, klase)
-			ca(turinys, 'pasleptas')
-
 			//ih - inner HTML. jei nurodoma '' tai reiskia elementas yra tuscias
 			ih(turinys, '')
 		}
@@ -359,28 +351,26 @@
 			//ciklas kurio metu einama per visas skiltis
 			for(skiltis of skiltys) {
 				//tikrinama ar ciklo skiltis nelygi paspaustam apskritimui(skilciai)
-				if(skiltis != paspausta_skiltis) {
-					//jei nera lygi tai pridedama klase 'sumazinta'
-					ca(skiltis, 'sumazinta')
+				if(skiltis == paspausta_skiltis) {
+					//kiekvienoje skiltyje .children[0] yra skilties pavadinimas o .children[1] yra antras elementas kuris yra turinys. 
+					var skilties_turinys = paspausta_skiltis.children[1].innerHTML
+
+					//ih - innerHTML sutrumpinimas
+					ih(turinys, skilties_turinys)
+					
+					//nuskrolinama i puslapio virsu. kaip ir nebutinas, bet kartais gali atrodyti maloniau akiai.
+					window.scrollTo({ top: 0, behavior: 'smooth' });
 				}
 				else {
-					//o jei yra skilties turinio elementas perduodamas funkcijai rodytiTurini
-					rodytiTurini(paspausta_skiltis.children[1])
-					//kiekvienoje skiltyje .children[0] yra skilties pavadinimas o .children[1] yra antras elementas kuris yra turinys. 
+					//ca - class add | jei nera lygi tai pridedama klase 'sumazinta'
+					ca(skiltis, 'sumazinta')
 				}
 			}
+
 			//pakeiciama kas turi nutikti kai paspaudziama ant skilties. 
 			a(paspausta_skiltis, 'onclick', 'rodytiPradzia()')
 		}
-
-		function rodytiTurini(turinio_elementas) {
-			//
-			ih(turinys, turinio_elementas.innerHTML)
-			//parodomas turinys
-			cr(turinys, 'pasleptas')
-			//nuskrolinama i puslapio virsu. kaip ir nebutinas, bet kartais gali atrodyti maloniau akiai.
-			window.scrollTo({ top: 0, behavior: 'smooth' });
-		}	
+	
 	</script>
 	
 	</body>
