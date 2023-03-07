@@ -14,40 +14,36 @@
 
 	<style>
 
-		* { font-family: sans-serif; font-size: 20px;}
+		* { 
+			font-family: 
+			sans-serif; 
+			font-size: 20px;
+		}
 
-		.logo-blokas 
-		{
+		.logo-blokas {
 			padding: 3em; 
 			display: flex; 
 			justify-content: center;
 			cursor: pointer;
 		}
 
-		.logo
-		{
+		.logo {
 			max-height:100px
 		}
 
-		.skiltys 
-		{
+		#skiltys {
 			display: flex;
 			justify-content: center;
 			align-items: center;
 			flex-wrap: wrap;
 		}
 
-		.skiltis 
-		{
+		.skiltis {
 			cursor: pointer;
 			text-align: center;
 			display: flex;
 			justify-content: center;
 			align-items: center;
-		}
-
-		.apskritimas 
-		{ 
 			width: 240px;
 			height: 240px;
 			max-height: 80vw;
@@ -61,14 +57,17 @@
 			background-size: cover;
 			padding: 1em;
 			overflow: hidden;
-/*			transition: all 300ms ease;*/
+/*			transition: all 3s ease;*/
 /*			transition-property: height, width, padding, margin;
 			transition-delay: 300ms;*/
 			opacity: 1;
 		}
 
-		.sumazintas
-		{
+		.skiltis:hover {
+			transform: scale(1.1)
+		}
+
+		.sumazinta {
 			margin: 0;
 			padding: 0;
 			width: 0;
@@ -76,30 +75,21 @@
 			opacity: 0;
 		}
 
-		.apskritimas:hover {
-			transform: scale(1.1)
+		.sumazinta > * {
+			display: none;
 		}
-
-		.pavadinimas
-		{
+		.pavadinimas {
 		  color: #222;
 		  font-size: 1.3em;
 		  background-color: hsla(0,0%,100%,.6);
 		  padding: 0.3em 0.6em;
 		}
 
-		.turinys
-		{
+		.turinys {
 			display: none;
 		}
 
-		p 
-		{
-			line-break: normal;
-		}
-
-		#turinys 
-		{
+		#turinys {
 			display: flex;
 			justify-content: center;
 			align-items: center;
@@ -119,62 +109,26 @@
 			height: 0;
 		}
 
+		p {
+			line-break: normal;
+		}
+		
 		a {
 			color: inherit;
 			padding: 0.5em;
 		}
+
 	</style>
 
 </head>
 <body>
 
-	<script>
-		function rodytiPradzia() {
-			const skiltys = q('.skiltys').children
-
-			for(skilt of skiltys) {
-				cr(skilt, 'sumazintas')
-				a(skilt, 'onclick', 'rodytiSkilti(this)')
-			}
-
-			ca(e('turinys'), 'pasleptas')
-			ih(e('turinys'), '')
-		}
-
-		function rodytiSkilti(skiltis) {
-			const skiltys = q('.skiltys').children
-
-			for(skilt of skiltys) {
-				if(skilt != skiltis) {
-					ca(skilt, 'sumazintas')
-				}
-				else {
-					rodytiTurini(skiltis.children[1])
-				}
-			}
-
-			a(skiltis, 'onclick', 'rodytiPradzia()')
-		}
-
-		function sumazintiApskritima(apskritimas) {
-			
-		}
-
-		function rodytiTurini(turinio_elementas) {
-			const turinys = e('turinys')
-			ih(turinys, turinio_elementas.innerHTML)
-			cr(turinys, 'pasleptas')
-			window.scrollTo({ top: 0, behavior: 'smooth' });
-		}	
-	</script>
-
 	<div class="logo-blokas" onclick="rodytiPradzia()">
 		<img class="logo" src="logo.svg" alt="Logotipas">
-
 	</div>
 
-	<div class="skiltys">
-		<div class="skiltis apskritimas" style="background-image: url('failai/knyga.jpg');" onclick="rodytiSkilti(this)" id="knygos">
+	<div id="skiltys">
+		<div class="skiltis" style="background-image: url('failai/knyga.jpg');" onclick="rodytiSkilti(this)" id="knygos">
 			<div class="pavadinimas">Knygos</div>
 			<div class="turinys">
 
@@ -185,7 +139,7 @@
 			</div>
 		</div>
 
-		<div class="skiltis apskritimas" style="background-image: url('failai/asmeninis-koucingas.jpg');" onclick="rodytiSkilti(this)" id="koucingas">
+		<div class="skiltis" style="background-image: url('failai/asmeninis-koucingas.jpg');" onclick="rodytiSkilti(this)" id="koucingas">
 			<div class="pavadinimas">Individualus koučingas</div>
 			<div class="turinys">
 
@@ -216,7 +170,7 @@
 			</div>
 		</div>
 
-		<div class="skiltis apskritimas" style="background-image: url('failai/poru-koucingas.jpg');" onclick="rodytiSkilti(this)" id="koucingas-poru">
+		<div class="skiltis" style="background-image: url('failai/poru-koucingas.jpg');" onclick="rodytiSkilti(this)" id="koucingas-poru">
 			<div class="pavadinimas">Porų koučingas</div>
 			<div class="turinys">
 
@@ -242,7 +196,7 @@
 			</div>
 		</div>
 
-		<div class="skiltis apskritimas" style="background-image: url('failai/stovyklos.jpg');" onclick="rodytiSkilti(this)" id="stovyklos">
+		<div class="skiltis" style="background-image: url('failai/stovyklos.jpg');" onclick="rodytiSkilti(this)" id="stovyklos">
 			<div class="pavadinimas">Stovyklos</div>
 			<div class="turinys">
 
@@ -253,7 +207,7 @@
 			</div>
 		</div>		
 		
-		<div class="skiltis apskritimas" style="background-image: url('failai/koucingo-rekolekcijos.jpg');" onclick="rodytiSkilti(this)" id="koucingo-rekolekcijos">
+		<div class="skiltis" style="background-image: url('failai/koucingo-rekolekcijos.jpg');" onclick="rodytiSkilti(this)" id="koucingo-rekolekcijos">
 			<div class="pavadinimas">Koučingo rekolekcijos</div>
 			<div class="turinys">
 			
@@ -298,7 +252,7 @@
 			</div>
 		</div>
 
-		<div class="skiltis apskritimas" style="background-image: url('failai/mokymai.jpg');" onclick="rodytiSkilti(this)" id="mokymai">
+		<div class="skiltis" style="background-image: url('failai/mokymai.jpg');" onclick="rodytiSkilti(this)" id="mokymai">
 			<div class="pavadinimas">Mokymai</div>
 			<div class="turinys">
 				
@@ -307,7 +261,7 @@
 			</div>
 		</div>
 
-		<div class="skiltis apskritimas" style="background-image: url('failai/grupes-koucingas.jpg');" onclick="rodytiSkilti(this)" id="koucingas-grupes">
+		<div class="skiltis" style="background-image: url('failai/grupes-koucingas.jpg');" onclick="rodytiSkilti(this)" id="koucingas-grupes">
 			<div class="pavadinimas">Grupės/komandos koučingas</div>
 			<div class="turinys">
 				
@@ -316,7 +270,7 @@
 			</div>
 		</div>
 
-		<div class="skiltis apskritimas" style="background-image: url('failai/kontaktai.jpg');" onclick="rodytiSkilti(this)" id="kontaktai">
+		<div class="skiltis" style="background-image: url('failai/kontaktai.jpg');" onclick="rodytiSkilti(this)" id="kontaktai">
 			<div class="pavadinimas">Kontaktai</div>
 			<div class="turinys">
 				
@@ -326,7 +280,7 @@
 			</div>
 		</div>
 
-		<div class="skiltis apskritimas" style="background-image: url('failai/apie.jpg');" onclick="rodytiSkilti(this)" id="apie">
+		<div class="skiltis" style="background-image: url('failai/apie.jpg');" onclick="rodytiSkilti(this)" id="apie">
 			<div class="pavadinimas">Apie</div>
 			<div class="turinys">
 				
@@ -353,11 +307,66 @@
 
 			</div>
 		</div>	
-
 	</div>
 
 	<div id="turinys" class="pasleptas">
-		
 	</div>
+
+	<script>
+		//konstanta skiltys yra elemento su ID skiltys viduje esantys elementai. 
+		const skiltys = e('skiltys').children
+		const turinys = e('turinys')
+
+
+		//funkcija sugrazina puslapi i pradine stadija kai visi apskritimai nera sumazinti o ant ju paspaudus rodoma skiltis
+
+		function rodytiPradzia() {
+
+			//ciklas 'for' kurio metu atliekami veiksmai su visomis skiltimis
+			for(skiltis of skiltys) {
+
+				//cr - class remove
+				//nuimama klase 'sumazinta'
+				cr(skiltis, 'sumazinta')
+
+				//a - prideti attribute
+				a(skiltis, 'onclick', 'rodytiSkilti(this)')
+			}
+
+			//paslepiamas turinys
+			//ca - class add (elementas, klase)
+			ca(turinys, 'pasleptas')
+
+			//ih - inner HTML. jei nurodoma '' tai reiskia elementas yra tuscias
+			ih(turinys, '')
+		}
+
+		function rodytiSkilti(paspausta_skiltis) {
+			//ciklas kurio metu einama per visas skiltis
+			for(skiltis of skiltys) {
+				//tikrinama ar ciklo skiltis nelygi paspaustam apskritimui(skilciai)
+				if(skiltis != paspausta_skiltis) {
+					//jei nera lygi tai pridedama klase 'sumazinta'
+					ca(skiltis, 'sumazinta')
+				}
+				else {
+					//o jei yra skilties turinio elementas perduodamas funkcijai rodytiTurini
+					rodytiTurini(paspausta_skiltis.children[1])
+					//kiekvienoje skiltyje .children[0] yra skilties pavadinimas o .children[1] yra antras elementas kuris yra turinys. 
+				}
+			}
+			//pakeiciama kas turi nutikti kai paspaudziama ant skilties. 
+			a(paspausta_skiltis, 'onclick', 'rodytiPradzia()')
+		}
+
+		function rodytiTurini(turinio_elementas) {
+			//
+			ih(turinys, turinio_elementas.innerHTML)
+			//parodomas turinys
+			cr(turinys, 'pasleptas')
+			//nuskrolinama i puslapio virsu. kaip ir nebutinas, bet kartais gali atrodyti maloniau akiai.
+			window.scrollTo({ top: 0, behavior: 'smooth' });
+		}	
+	</script>
 </body>
 </html>
