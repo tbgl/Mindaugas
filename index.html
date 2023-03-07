@@ -1,141 +1,155 @@
 <!DOCTYPE html>
+
 <html>
-<head>
-	<script type="text/javascript " src="https://unpkg.com/srcsjs@0.0.5/s.js"></script>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Mindaugas Pikūnas</title>
-	<meta name="description" content="">
-	<meta name="og:type" property="og:type" content="website">
-	<meta name="og:image" property="og:image" content="failai/knyga.jpg">
-	<meta name="og:title" property="og:title" content="Mindaugas Pikūnas">
-	<meta name="og:site_name" property="og:site_name" content="Mindaugas Pikūnas">
-	<meta name="og:description" property="og:description" content="Mindaugo Pikūno internetinis puslapis">
+	<head>
+		<meta charset="utf-8">
+		<title>Mindaugas Pikūnas</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<script type="text/javascript " src="https://unpkg.com/srcsjs@0.0.5/s.js"></script>
+		<meta name="description" content="Mindaugo Pikūno internetinis puslapis">
+		<meta name="og:type" property="og:type" content="website">
+		<meta name="og:image" property="og:image" content="failai/knyga.jpg">
+		<meta name="og:title" property="og:title" content="Mindaugas Pikūnas">
+		<meta name="og:site_name" property="og:site_name" content="Mindaugas Pikūnas">
+		<meta name="og:description" property="og:description" content="Mindaugo Pikūno internetinis puslapis">
+	
+		<style>
 
-	<style>
+			* { 
+				font-family: sans-serif;
+				font-size: 20px;
+			}
 
-		* { 
-			font-family: 
-			sans-serif; 
-			font-size: 20px;
-		}
+			.logo-blokas {
+				padding: 3em;
 
-		.logo-blokas {
-			padding: 3em; 
-			display: flex; 
-			justify-content: center;
-			cursor: pointer;
-		}
+				/* i visus sonus */
+				padding: 60px;
 
-		.logo {
-			max-height:100px
-		}
+				/* padding-top: 20px;
+				padding-right: 60px;
+				padding-bottom: 40px;
+				padding-left: 60px; */
 
-		#skiltys {
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			flex-wrap: wrap;
-		}
+				/* padding: 20px 60px 40px 60px; */
 
-		.skiltis {
-			cursor: pointer;
-			text-align: center;
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			width: 240px;
-			height: 240px;
-			max-height: 80vw;
-			max-width: 80vw;
-			border-radius: 50%;
-			background-color: #ddd;
-			transition: all 50ms;
-			margin: 2em;
-			background-position: 50%;
-			background-repeat: no-repeat;
-			background-size: cover;
-			padding: 1em;
-			overflow: hidden;
-/*			transition: all 3s ease;*/
-/*			transition-property: height, width, padding, margin;
-			transition-delay: 300ms;*/
-			opacity: 1;
-		}
+				/* pirmas skaicius virsus ir apacia, antras sonai */
+				/* padding: 30px 60px; */
 
-		.skiltis:hover {
-			transform: scale(1.1)
-		}
+				text-align: center;
+				cursor: pointer;
+			}
 
-		.sumazinta {
-			margin: 0;
-			padding: 0;
-			width: 0;
-			height: 0;
-			opacity: 0;
-		}
+			#logo {
+				max-height:100px;
+			}
 
-		.sumazinta > * {
-			display: none;
-		}
-		.pavadinimas {
-		  color: #222;
-		  font-size: 1.3em;
-		  background-color: hsla(0,0%,100%,.6);
-		  padding: 0.3em 0.6em;
-		}
+			#skiltys {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				flex-wrap: wrap;
+			}
 
-		.turinys {
-			display: none;
-		}
+			.skiltis {
+				cursor: pointer;
+				text-align: center;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				width: 240px;
+				height: 240px;
+				max-height: 80vw;
+				max-width: 80vw;
+				border-radius: 50%;
+				background-color: #ddd;
+				transition: all 50ms;
+				margin: 2em;
+				background-position: 50%;
+				background-repeat: no-repeat;
+				background-size: cover;
+				padding: 1em;
+				overflow: hidden;
+	/*			transition: all 3s ease;*/
+	/*			transition-property: height, width, padding, margin;
+				transition-delay: 300ms;*/
+				opacity: 1;
+			}
 
-		#turinys {
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			flex-direction: column;
-			position: relative;
-			height: auto;
-			transition: all 500ms ease;
-			transition-delay: 200ms;
-			max-width: 600px;
-			padding: 2em;
-			margin: auto;
-		}
+			.skiltis:hover {
+				transform: scale(1.1)
+			}
 
-		.pasleptas {
-			display: none;
-			position: fixed;
-			height: 0;
-		}
+			.sumazinta {
+				margin: 0;
+				padding: 0;
+				width: 0;
+				height: 0;
+				opacity: 0;
+			}
 
-		p {
-			line-break: normal;
-		}
-		
-		a {
-			color: inherit;
-			padding: 0.5em;
-		}
+			.sumazinta > * {
+				display: none;
+			}
+			.pavadinimas {
+			color: #222;
+			font-size: 1.3em;
+			background-color: hsla(0,0%,100%,.6);
+			padding: 0.3em 0.6em;
+			}
 
-	</style>
+			.turinys {
+				display: none;
+			}
 
-</head>
-<body>
+			#turinys {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				flex-direction: column;
+				position: relative;
+				height: auto;
+				transition: all 500ms ease;
+				transition-delay: 200ms;
+				max-width: 600px;
+				padding: 2em;
+				margin: auto;
+			}
+
+			.pasleptas {
+				display: none;
+				position: fixed;
+				height: 0;
+			}
+
+			p {
+				line-break: normal;
+			}
+			
+			a {
+				color: inherit;
+				padding: 0.5em;
+			}
+
+		</style>
+
+	</head>
+
+	<body>
 
 	<div class="logo-blokas" onclick="rodytiPradzia()">
-		<img class="logo" src="logo.svg" alt="Logotipas">
+		<img id="logo" src="logo.svg" alt="Logotipas">
 	</div>
 
 	<div id="skiltys">
 		<div class="skiltis" style="background-image: url('failai/knyga.jpg');" onclick="rodytiSkilti(this)" id="knygos">
 			<div class="pavadinimas">Knygos</div>
 			<div class="turinys">
-
+				<img src="knyga.jpeg" alt="knygos nuotrauka" style="max-width: 100%;">
 				<p>
-				Knyga šiuo metu dar yra rašymo stadijoje. Laukite naujienų. 
+					<!-- ND: Parasyti knygos aprasyma -->
 				</p>
-				
+				<a href="https://contribee.com/sventas-laikas" target="blank">Pirkti knygą</a>
 			</div>
 		</div>
 
@@ -368,5 +382,6 @@
 			window.scrollTo({ top: 0, behavior: 'smooth' });
 		}	
 	</script>
-</body>
+	
+	</body>
 </html>
